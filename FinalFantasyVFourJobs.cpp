@@ -16,7 +16,7 @@ int main()
     JobCompositionTypes jobComp = JobCompositionTypes::ALL;
     vector<AdvancedOptions> advancedOptionsList{AdvancedOptions::ALLOWBERSERKER};
 
-    Crystal test{};
+
     WindCrystal windTest{};
     WaterCrystal waterTest{};
     FireCrystal fireTest{};
@@ -26,6 +26,8 @@ int main()
     waterTest.PrintMessage();
     fireTest.PrintMessage();
     earthTest.PrintMessage();
+
+    earthTest.PrintMessage("Rocks and the like");
 
     RunConfig runConf{ testCrystal, testJobs, runType, jobComp, advancedOptionsList };
 

@@ -4,6 +4,7 @@
 #include <time.h>
 #include "ConsoleFormatter.h"
 #include <iostream>
+using namespace std;
 
 class Crystal
 {
@@ -15,26 +16,21 @@ public:
 		SetRandomSeed();
 	}
 	
-	virtual Jobs GetValidJob()
-	{
-		throw std::exception("Base class");
-	}
+	virtual Jobs GetValidJob() = 0;
 
-	virtual void DisplayJobs()
-	{
-		throw std::exception("Base class");
-	}
+	virtual void DisplayJobs() = 0;
 	
-	virtual void SetValidJobs()
-	{
-		throw std::exception("Base class");
-	}
+	virtual void SetValidJobs() = 0;
 
-	virtual void PrintMessage()
-	{
-		throw std::exception("Base class");
-	}
+	virtual void PrintMessage() = 0;
+	virtual void SetColour() = 0;
 
+	virtual void PrintMessage(string text) = 0;
+
+	void ResetColour()
+	{
+		console.ResetColour();
+	}
 	int GetRandom(int jobNum)
 	{
 		return rand() % jobNum;
@@ -88,9 +84,20 @@ public:
 
 	void PrintMessage()
 	{
-		console.SetColour(CrystalColour);
 		printf("This is the wind crystal\n");
-		console.ResetColour();
+	}
+
+	// Inherited via Crystal
+	virtual void PrintMessage(string text) override
+	{
+		SetColour();
+		cout << text;
+		ResetColour();
+	}
+
+	virtual void SetColour() override
+	{
+		console.SetColour(CrystalColour);
 	}
 };
 
@@ -133,6 +140,18 @@ public:
 		printf("This is the water crystal\n");
 		console.ResetColour();
 	}
+
+	// Inherited via Crystal
+	virtual void SetColour() override
+	{
+		console.SetColour(CrystalColour);
+	}
+	virtual void PrintMessage(string text) override
+	{
+		SetColour();
+		cout << text;
+		ResetColour();
+	}
 };
 
 
@@ -173,6 +192,18 @@ public:
 		console.SetColour(CrystalColour);
 		printf("This is the fire crystal\n");
 		console.ResetColour();
+	}
+
+	// Inherited via Crystal
+	virtual void SetColour() override
+	{
+		console.SetColour(CrystalColour);
+	}
+	virtual void PrintMessage(string text) override
+	{
+		SetColour();
+		cout << text;
+		ResetColour();
 	}
 };
 
@@ -215,6 +246,18 @@ public:
 		console.SetColour(CrystalColour);
 		printf("This is the earth crystal\n");
 		console.ResetColour();
+	}
+
+	// Inherited via Crystal
+	virtual void SetColour() override
+	{
+		console.SetColour(CrystalColour);
+	}
+	virtual void PrintMessage(string text) override
+	{
+		SetColour();
+		cout << text;
+		ResetColour();
 	}
 };
 
