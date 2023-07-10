@@ -22,7 +22,7 @@ int main()
     FireCrystal fireTest{};
     EarthCrystal earthTest{};
 
-    string text = "Hello";
+
     windTest.PrintMessage("Windy");
     waterTest.PrintMessage("Watery");
     fireTest.PrintMessage("Firey");
