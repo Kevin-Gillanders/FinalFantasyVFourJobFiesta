@@ -22,12 +22,13 @@ int main()
     FireCrystal fireTest{};
     EarthCrystal earthTest{};
 
-    windTest.PrintMessage();
-    waterTest.PrintMessage();
-    fireTest.PrintMessage();
-    earthTest.PrintMessage();
+    string text = "Hello";
+    windTest.PrintMessage("Windy");
+    waterTest.PrintMessage("Watery");
+    fireTest.PrintMessage("Firey");
+    earthTest.PrintMessage("Earthy");
 
-    earthTest.PrintMessage("Rocks and the like");
+    //earthTest.PrintMessage("Rocks and the like");
 
     RunConfig runConf{ testCrystal, testJobs, runType, jobComp, advancedOptionsList };
 

@@ -8,6 +8,13 @@ using namespace std;
 
 class Crystal
 {
+
+protected:
+	std::vector<Jobs> ValidJobs{};
+	ConsoleColour CrystalColour;
+	Crystals CrystalDefinition;
+	string CrystalName;
+
 public:
 	ConsoleFormatter console{};
 
@@ -22,19 +29,32 @@ public:
 	
 	virtual void SetValidJobs() = 0;
 
-	virtual void PrintMessage() = 0;
-	virtual void SetColour() = 0;
 
-	virtual void PrintMessage(string text) = 0;
+	void PrintMessage(string text)
+	{
+
+		SetColour(); 
+		cout << "This is the " << CrystalName << " crystal" << endl;
+		cout << text << endl;
+		ResetColour();
+	}
 
 	void ResetColour()
 	{
 		console.ResetColour();
 	}
+
 	int GetRandom(int jobNum)
 	{
 		return rand() % jobNum;
 	}
+
+	virtual void SetColour()
+	{
+		console.SetColour(CrystalColour);
+	}
+
+
 private:
 	void SetRandomSeed()
 	{
@@ -48,11 +68,6 @@ private:
 class WindCrystal : public Crystal
 {
 private:
-	std::vector<Jobs> ValidJobs{};
-	ConsoleColour CrystalColour;
-	Crystals CrystalDefinition;
-
-
 	void SetValidJobs()
 	{
 		ValidJobs.push_back(Jobs::KNIGHT);
@@ -69,47 +84,25 @@ public:
 		SetValidJobs();
 		CrystalColour = ConsoleColour::BRIGHT_CYAN;
 		CrystalDefinition = Crystals::WIND;
+		CrystalName = "Wind";
 
 	}
 
-	Jobs GetValidJob()
+	virtual Jobs GetValidJob() override
 	{
-		throw std::exception("Not implemented");
+		return Jobs();
 	}
 
-	void DisplayJobs()
+	virtual void DisplayJobs() override
 	{
-		std::cout << "Hello";
 	}
 
-	void PrintMessage()
-	{
-		printf("This is the wind crystal\n");
-	}
-
-	// Inherited via Crystal
-	virtual void PrintMessage(string text) override
-	{
-		SetColour();
-		cout << text;
-		ResetColour();
-	}
-
-	virtual void SetColour() override
-	{
-		console.SetColour(CrystalColour);
-	}
 };
 
 
 class WaterCrystal : public Crystal
 {
 private:
-	std::vector<Jobs> ValidJobs{};
-	ConsoleColour CrystalColour;
-	Crystals CrystalDefinition;
-
-
 	void SetValidJobs()
 	{
 		ValidJobs.push_back(Jobs::KNIGHT);
@@ -121,36 +114,18 @@ public:
 		SetValidJobs();
 		CrystalColour = ConsoleColour::BRIGHT_BLUE;
 		CrystalDefinition = Crystals::WATER;
+		CrystalName = "Water";
 
 	}
 
-	Jobs GetValidJob()
+	virtual Jobs GetValidJob() override
 	{
 		throw std::exception("Not implemented");
 	}
 
-	void DisplayJobs()
+	virtual void DisplayJobs() override
 	{
 		std::cout << "Hello";
-	}
-
-	void PrintMessage()
-	{
-		console.SetColour(CrystalColour);
-		printf("This is the water crystal\n");
-		console.ResetColour();
-	}
-
-	// Inherited via Crystal
-	virtual void SetColour() override
-	{
-		console.SetColour(CrystalColour);
-	}
-	virtual void PrintMessage(string text) override
-	{
-		SetColour();
-		cout << text;
-		ResetColour();
 	}
 };
 
@@ -158,11 +133,6 @@ public:
 class FireCrystal : public Crystal
 {
 private:
-	std::vector<Jobs> ValidJobs{};
-	ConsoleColour CrystalColour;
-	Crystals CrystalDefinition;
-
-
 	void SetValidJobs()
 	{
 		ValidJobs.push_back(Jobs::KNIGHT);
@@ -174,7 +144,7 @@ public:
 		SetValidJobs();
 		CrystalColour = ConsoleColour::BRIGHT_RED;
 		CrystalDefinition = Crystals::FIRE;
-
+		CrystalName = "Fire";
 	}
 
 	Jobs GetValidJob()
@@ -186,25 +156,6 @@ public:
 	{
 		std::cout << "Hello";
 	}
-
-	void PrintMessage()
-	{
-		console.SetColour(CrystalColour);
-		printf("This is the fire crystal\n");
-		console.ResetColour();
-	}
-
-	// Inherited via Crystal
-	virtual void SetColour() override
-	{
-		console.SetColour(CrystalColour);
-	}
-	virtual void PrintMessage(string text) override
-	{
-		SetColour();
-		cout << text;
-		ResetColour();
-	}
 };
 
 
@@ -212,10 +163,6 @@ public:
 class EarthCrystal : public Crystal
 {
 private:
-	std::vector<Jobs> ValidJobs{};
-	ConsoleColour CrystalColour;
-	Crystals CrystalDefinition;
-
 
 	void SetValidJobs()
 	{
@@ -228,6 +175,7 @@ public:
 		SetValidJobs();
 		CrystalColour = ConsoleColour::BRIGHT_GREEN;
 		CrystalDefinition = Crystals::EARTH;
+		CrystalName = "Earth";
 
 	}
 
@@ -239,25 +187,6 @@ public:
 	void DisplayJobs()
 	{
 		std::cout << "Hello";
-	}
-
-	void PrintMessage()
-	{
-		console.SetColour(CrystalColour);
-		printf("This is the earth crystal\n");
-		console.ResetColour();
-	}
-
-	// Inherited via Crystal
-	virtual void SetColour() override
-	{
-		console.SetColour(CrystalColour);
-	}
-	virtual void PrintMessage(string text) override
-	{
-		SetColour();
-		cout << text;
-		ResetColour();
 	}
 };
 
