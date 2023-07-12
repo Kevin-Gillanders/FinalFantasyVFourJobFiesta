@@ -3,7 +3,11 @@
 #include <iostream>
 #include "ConsoleFormatter.h"
 #include "RunConfig.h"
-#include "Crystal.cpp"
+#include "Crystal.h"
+#include "WindCrystal.h"
+#include "WaterCrystal.h"
+#include "FireCrystal.h"
+#include "EarthCrystal.h"
 using namespace std;
 
 int main()
@@ -28,7 +32,7 @@ int main()
     fireTest.PrintMessage("Firey");
     earthTest.PrintMessage("Earthy");
 
-    //earthTest.PrintMessage("Rocks and the like");
+    earthTest.PrintMessage("Rocks and the like");
 
     RunConfig runConf{ testCrystal, testJobs, runType, jobComp, advancedOptionsList };
 

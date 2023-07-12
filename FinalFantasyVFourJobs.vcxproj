@@ -132,16 +132,24 @@
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
     </ClCompile>
     <ClCompile Include="Crystal.cpp" />
+    <ClCompile Include="EarthCrystal.cpp" />
     <ClCompile Include="FinalFantansyVJobs.cpp" />
     <ClCompile Include="FinalFantasyVEnums.h" />
     <ClCompile Include="FinalFantasyVFourJobs.cpp" />
+    <ClCompile Include="FireCrystal.cpp" />
     <ClCompile Include="RunConfig.cpp" />
+    <ClCompile Include="WaterCrystal.cpp" />
+    <ClCompile Include="WindCrystal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConsoleFormatter.h" />
     <ClInclude Include="Crystal.h" />
+    <ClInclude Include="EarthCrystal.h" />
     <ClInclude Include="FinalFantansyVJobs.h" />
+    <ClInclude Include="FireCrystal.h" />
     <ClInclude Include="RunConfig.h" />
+    <ClInclude Include="WaterCrystal.h" />
+    <ClInclude Include="WindCrystal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
