@@ -28,7 +28,8 @@ void Crystal::ResetColour()
 
 int Crystal::GetRandom(int jobNum)
 {
-	return rand() % jobNum;
+	int rndNum = rand() % jobNum;
+	return rndNum;
 }
 
 void Crystal::SetColour()
@@ -40,3 +41,10 @@ void Crystal::SetRandomSeed()
 {
 	srand(time(NULL));
 }
+
+Jobs Crystal::GetValidJob()
+{
+	int x = ValidJobs.size();
+	return ValidJobs[GetRandom(x)];
+}
+

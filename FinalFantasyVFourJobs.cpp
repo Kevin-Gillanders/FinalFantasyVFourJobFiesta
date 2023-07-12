@@ -8,6 +8,7 @@
 #include "WaterCrystal.h"
 #include "FireCrystal.h"
 #include "EarthCrystal.h"
+#include "FourJobFiestaBuilder.h"
 using namespace std;
 
 int main()
@@ -35,6 +36,24 @@ int main()
     earthTest.PrintMessage("Rocks and the like");
 
     RunConfig runConf{ testCrystal, testJobs, runType, jobComp, advancedOptionsList };
+    RunConfig runConfWa{ Crystals::WATER, testJobs, runType, jobComp, advancedOptionsList };
+    RunConfig runConfFi{ Crystals::FIRE, testJobs, runType, jobComp, advancedOptionsList };
+    RunConfig runConfEa{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
+
+
+    FourJobFiestaBuilder fjfBuilder{};
+
+    fjfBuilder.GenerateJob(runConf);
+    fjfBuilder.GenerateJob(runConf);
+
+    fjfBuilder.GenerateJob(runConfWa);
+    fjfBuilder.GenerateJob(runConfWa);
+    
+    fjfBuilder.GenerateJob(runConfFi);
+    fjfBuilder.GenerateJob(runConfFi);
+    
+    fjfBuilder.GenerateJob(runConfEa);
+    fjfBuilder.GenerateJob(runConfEa);
 
     /*console.SetColour(consoleColour::BLUE, consoleColour::YELLOW);
 

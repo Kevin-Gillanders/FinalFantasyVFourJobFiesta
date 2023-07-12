@@ -22,9 +22,9 @@ public:
 
 	Crystal();
 	
-	virtual Jobs GetValidJob() = 0;
-	virtual void DisplayJobs() = 0;
+	virtual void DisplayJobs(Jobs jobToDisplay) = 0;
 
+	Jobs GetValidJob();
 	void PrintMessage(std::string text);
 	void ResetColour();
 	int GetRandom(int jobNum);

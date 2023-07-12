@@ -9,6 +9,5 @@ protected:
 public:
 	WindCrystal();
 	// Inherited via Crystal
-	virtual Jobs GetValidJob() override;
-	virtual void DisplayJobs() override;
+	virtual void DisplayJobs(Jobs jobToDisplay) override;
 };

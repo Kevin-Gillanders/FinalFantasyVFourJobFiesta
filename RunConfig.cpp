@@ -8,3 +8,12 @@ RunConfig::RunConfig(Crystals currentCrystal, std::vector<Jobs>& currentJobs, Ru
 	JobComp = jobComp;
 	AdvancedOptionsList = advancedOptionsList;	
 }
+
+void RunConfig::AddJob(Jobs jobToAdd)
+{
+	CurrentJobs.push_back(jobToAdd);
+}
+
+void RunConfig::PrintRunConfig()
+{
+}
