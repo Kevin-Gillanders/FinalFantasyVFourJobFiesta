@@ -8,6 +8,22 @@ void FireCrystal::SetValidJobs()
 	ValidJobs.push_back(Jobs::TRAINER);
 	ValidJobs.push_back(Jobs::BARD);
 
+	//750
+	_750Jobs.push_back(Jobs::GEOMANCER);
+	_750Jobs.push_back(Jobs::BARD);
+
+	//no 750
+	No750Jobs.push_back(Jobs::HUNTER);
+	No750Jobs.push_back(Jobs::TRAINER);
+	No750Jobs.push_back(Jobs::NINJA);
+
+
+	OnionJobs.push_back(Jobs::BARD);
+	OnionJobs.push_back(Jobs::GEOMANCER);
+	OnionJobs.push_back(Jobs::NINJA);
+	OnionJobs.push_back(Jobs::HUNTER);
+
+
 }
 
 FireCrystal::FireCrystal()
@@ -18,35 +34,3 @@ FireCrystal::FireCrystal()
 	CrystalName = "Fire";
 }
 
-
-void FireCrystal::DisplayJobs(Jobs jobToDisplay)
-{
-
-		std::string jobName;
-
-		switch (jobToDisplay)
-		{
-		case NINJA:
-			jobName = "Ninja";
-			break;
-		case HUNTER:
-			jobName = "Hunter";
-			break;
-		case GEOMANCER:
-			jobName = "Geomancer";
-			break;
-		case TRAINER:
-			jobName = "Trainer";
-			break;
-		case BARD:
-			jobName = "Bard";
-			break;
-		default:
-			throw;
-			break;
-		}
-
-		PrintMessage(jobName);
-	
-
-}

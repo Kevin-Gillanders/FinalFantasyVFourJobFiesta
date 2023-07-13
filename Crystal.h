@@ -12,6 +12,12 @@ class Crystal
 
 protected:
 	std::vector<Jobs> ValidJobs{};
+	std::vector<Jobs> _750Jobs{};
+	std::vector<Jobs> No750Jobs{};
+	std::vector<Jobs> ClassicJobs{};
+	std::vector<Jobs> OnionJobs{};
+	std::vector<Jobs> MeteorJobs{};
+
 	ConsoleColour CrystalColour;
 	Crystals CrystalDefinition;
 	std::string CrystalName;
@@ -22,9 +28,10 @@ public:
 
 	Crystal();
 	
-	virtual void DisplayJobs(Jobs jobToDisplay) = 0;
+	void DisplayJobs(Jobs jobToDisplay);
 
-	Jobs GetValidJob();
+	Jobs GetValidJob(JobCompositionTypes type);
+	Jobs Get375ValidJob(JobCompositionTypes type, int _750, int no750);
 	void PrintMessage(std::string text);
 	void ResetColour();
 	int GetRandom(int jobNum);
@@ -33,5 +40,6 @@ public:
 private:
 
 	void SetRandomSeed();
+	void SetMeteorJobs();
 
 };

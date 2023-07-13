@@ -17,43 +17,125 @@ int main()
 
     Crystals testCrystal = Crystals::WIND;
     vector<Jobs> testJobs = { Jobs::BARD };
-    RunTypes runType = RunTypes::METEOR;
-    JobCompositionTypes jobComp = JobCompositionTypes::ALL;
+    RunTypes runType = RunTypes::REGULAR;
+    JobCompositionTypes jobComp = JobCompositionTypes::TEAM750;
     vector<AdvancedOptions> advancedOptionsList{AdvancedOptions::ALLOWBERSERKER};
 
 
-    WindCrystal windTest{};
-    WaterCrystal waterTest{};
-    FireCrystal fireTest{};
-    EarthCrystal earthTest{};
+    //WindCrystal windTest{};
+    //WaterCrystal waterTest{};
+    //FireCrystal fireTest{};
+    //EarthCrystal earthTest{};
 
 
-    windTest.PrintMessage("Windy");
-    waterTest.PrintMessage("Watery");
-    fireTest.PrintMessage("Firey");
-    earthTest.PrintMessage("Earthy");
+    //windTest.PrintMessage("Windy");
+    //waterTest.PrintMessage("Watery");
+    //fireTest.PrintMessage("Firey");
+    //earthTest.PrintMessage("Earthy");
 
-    earthTest.PrintMessage("Rocks and the like");
-
-    RunConfig runConf{ testCrystal, testJobs, runType, jobComp, advancedOptionsList };
-    RunConfig runConfWa{ Crystals::WATER, testJobs, runType, jobComp, advancedOptionsList };
-    RunConfig runConfFi{ Crystals::FIRE, testJobs, runType, jobComp, advancedOptionsList };
-    RunConfig runConfEa{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
+    //earthTest.PrintMessage("Rocks and the like");
 
 
+    
     FourJobFiestaBuilder fjfBuilder{};
 
-    fjfBuilder.GenerateJob(runConf);
-    fjfBuilder.GenerateJob(runConf);
+    //RunConfig runConf750{ Crystals::WATER, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfNo750{ Crystals::FIRE, testJobs, runType, jobComp, advancedOptionsList };
+    ////RunConfig runConf375{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfClassic{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfOnion{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfMeteor{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
 
-    fjfBuilder.GenerateJob(runConfWa);
-    fjfBuilder.GenerateJob(runConfWa);
+    RunConfig runConf{ testCrystal, testJobs, runType, JobCompositionTypes::ALL, advancedOptionsList };
+
+
+    cout << "Regular, all" << endl;
+    fjfBuilder.GenerateFullJobSet(runConf);
     
-    fjfBuilder.GenerateJob(runConfFi);
-    fjfBuilder.GenerateJob(runConfFi);
+    cout << "Regular, Typhoon" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::ALL, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
     
-    fjfBuilder.GenerateJob(runConfEa);
-    fjfBuilder.GenerateJob(runConfEa);
+    cout << "Regular, Volcano" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::ALL, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "750, All" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM750, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "750, Typhoon" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::TEAM750, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "750, Volcano" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::TEAM750, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+
+    cout << "NO750, ALL" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAMNO750, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf );
+
+    cout << "NO750, Volcano" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::TEAMNO750, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf );
+
+    cout << "NO750, Typhoon" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::TEAMNO750, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf );
+
+
+    cout << "Meteor, Meteor" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::METEOR, JobCompositionTypes::TEAMMETEOR, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+
+    cout << "CLASSICJOBS, ALL" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::CLASSICJOBS, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "CLASSICJOBS, TYPHOON" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::CLASSICJOBS, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "CLASSICJOBS, VOLCANO" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::CLASSICJOBS, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+
+    cout << "Team375, Regular" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "Team375, Regular" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    cout << "Team375, Regular" << endl;
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, advancedOptionsList);
+    fjfBuilder.GenerateFullJobSet(runConf);
+
+    //cout << "REGULAR, CLASSICJOBS" << endl;
+    //RunConfig runConfNoMeteor{ testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::CLASSICJOBS, advancedOptionsList };
+    //fjfBuilder.GenerateFullJobSet(runConfNoMeteor);
+
+    //RunConfig runConf{ testCrystal, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfWa{ Crystals::WATER, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfFi{ Crystals::FIRE, testJobs, runType, jobComp, advancedOptionsList };
+    //RunConfig runConfEa{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
+
+    //fjfBuilder.GenerateJob(runConf);
+    //fjfBuilder.GenerateJob(runConf);
+
+    //fjfBuilder.GenerateJob(runConfWa);
+    //fjfBuilder.GenerateJob(runConfWa);
+    //
+    //fjfBuilder.GenerateJob(runConfFi);
+    //fjfBuilder.GenerateJob(runConfFi);
+    //
+    //fjfBuilder.GenerateJob(runConfEa);
+    //fjfBuilder.GenerateJob(runConfEa);
 
     /*console.SetColour(consoleColour::BLUE, consoleColour::YELLOW);
 

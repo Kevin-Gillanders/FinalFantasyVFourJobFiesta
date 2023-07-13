@@ -8,6 +8,4 @@ protected:
 
 public:
 	FireCrystal();
-	// Inherited via Crystal
-	virtual void DisplayJobs(Jobs jobToDisplay) override;
 };

@@ -53,9 +53,10 @@ enum JobCompositionTypes {
     ALL,
     TEAM750,
     TEAMNO750,
-    TEAM325,
+    TEAM375,
     CLASSICJOBS,
     ONIONJOBS,
+    TEAMMETEOR,
 };
 
 enum AdvancedOptions {

@@ -13,7 +13,13 @@ private:
 	FireCrystal fireCrystal{};
 	EarthCrystal earthCrystal{};
 
-	Jobs GetJob(Crystals crystal);
+	std::vector<Crystals> NormalRun{WIND, WATER, FIRE, EARTH};
+	std::vector<std::vector<Crystals>> TyphoonRun{{WIND}, { WIND, WATER }, { WIND, WATER, FIRE }, { WIND, WATER, FIRE, EARTH }};
+	std::vector<std::vector<Crystals>> VolcanoRun{{ WIND, WATER, FIRE, EARTH }, { WATER, FIRE, EARTH }, { FIRE, EARTH }, { EARTH } };
+	std::vector<std::vector<Crystals>> MeteorRun{{ WIND, WATER, FIRE, EARTH }, { WIND, WATER, FIRE, EARTH }, { WIND, WATER, FIRE, EARTH }, { WIND, WATER, FIRE, EARTH } };
+
+	Jobs GetJob(Crystals crystal, JobCompositionTypes jobComp);
+	Crystals GetCrystal(RunTypes typeofRun, int round);
 	void DisplayRun(RunConfig runConfig);
 public:
 	void GenerateJob(RunConfig runDetails);

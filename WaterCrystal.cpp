@@ -8,6 +8,22 @@ void WaterCrystal::SetValidJobs()
 	ValidJobs.push_back(Jobs::BERSERKER);
 	ValidJobs.push_back(Jobs::SORCERER);
 	ValidJobs.push_back(Jobs::MIME);
+
+	//750
+	_750Jobs.push_back(Jobs::TIMEMAGE);
+	_750Jobs.push_back(Jobs::SUMMONER);
+	_750Jobs.push_back(Jobs::REDMAGE);
+
+	//no 750
+	No750Jobs.push_back(Jobs::BERSERKER);
+	No750Jobs.push_back(Jobs::SORCERER);
+
+	ClassicJobs.push_back(Jobs::REDMAGE);
+
+
+	OnionJobs.push_back(Jobs::REDMAGE);
+	OnionJobs.push_back(Jobs::SUMMONER);
+
 }
 
 WaterCrystal::WaterCrystal()
@@ -18,35 +34,3 @@ WaterCrystal::WaterCrystal()
 	CrystalName = "Water";
 }
 
-
-void WaterCrystal::DisplayJobs(Jobs jobToDisplay)
-{
-    std::string jobName;
-
-	switch (jobToDisplay)
-	{
-
-	case REDMAGE:
-		jobName = "Red Mage";
-		break;
-	case TIMEMAGE:
-		jobName = "Time Mage";
-		break;
-	case SUMMONER:
-		jobName = "Summoner";
-		break;
-	case BERSERKER:
-		jobName = "Berserker";
-		break;
-	case SORCERER:
-		jobName = "Sorcerer";
-		break;
-	case MIME:
-		jobName = "Mime";
-		break;
-	default:
-		throw;
-		break;
-	}
-    PrintMessage(jobName);
-}

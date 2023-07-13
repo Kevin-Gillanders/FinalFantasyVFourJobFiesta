@@ -19,39 +19,28 @@ void WindCrystal::SetValidJobs()
     ValidJobs.push_back(Jobs::WHITEMAGE);
     ValidJobs.push_back(Jobs::BLACKMAGE);
     ValidJobs.push_back(Jobs::BLUEMAGE);
+
+    //750
+    _750Jobs.push_back(Jobs::WHITEMAGE);
+    _750Jobs.push_back(Jobs::BLACKMAGE);
+    _750Jobs.push_back(Jobs::BLUEMAGE);
+
+    //No 750
+    No750Jobs.push_back(Jobs::THIEF);
+    No750Jobs.push_back(Jobs::MONK);
+    No750Jobs.push_back(Jobs::KNIGHT);
+
+    ClassicJobs.push_back(Jobs::KNIGHT);
+    ClassicJobs.push_back(Jobs::THIEF);
+    ClassicJobs.push_back(Jobs::MONK);
+    ClassicJobs.push_back(Jobs::WHITEMAGE);
+    ClassicJobs.push_back(Jobs::BLACKMAGE);
+
+    OnionJobs.push_back(Jobs::BLACKMAGE);
+    OnionJobs.push_back(Jobs::WHITEMAGE);
+    OnionJobs.push_back(Jobs::THIEF);
+    OnionJobs.push_back(Jobs::KNIGHT);
+    OnionJobs.push_back(Jobs::MONK);
+
 }
 
-
-void WindCrystal::DisplayJobs(Jobs jobToDisplay)
-{
-    std::string jobName;
-
-    switch (jobToDisplay)
-    {
-    case FREELANCER:
-        jobName = "Freelancer";
-        break;
-    case KNIGHT:
-        jobName = "Knight";
-        break;
-    case MONK:
-        jobName = "Monk";
-        break;
-    case THIEF:
-        jobName = "Thief";
-        break;
-    case WHITEMAGE:
-        jobName = "White Mage";
-        break;
-    case BLACKMAGE:
-        jobName = "Black Mage";
-        break;
-    case BLUEMAGE:
-        jobName = "Blue Mage";
-        break;
-    default:
-        break;
-    }
-
-    PrintMessage(jobName);
-}
