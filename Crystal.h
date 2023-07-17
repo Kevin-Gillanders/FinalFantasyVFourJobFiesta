@@ -30,7 +30,7 @@ public:
 	
 	void DisplayJobs(Jobs jobToDisplay);
 
-	Jobs GetValidJob(JobCompositionTypes type);
+	Jobs GetValidJob(JobCompositionTypes type, bool allowDupes, bool allowBerserkers, std::vector<Jobs> previousJobs);
 	Jobs Get375ValidJob(JobCompositionTypes type, int _750, int no750);
 	void PrintMessage(std::string text);
 	void ResetColour();

@@ -149,44 +149,70 @@ void Crystal::SetMeteorJobs()
 	MeteorJobs.push_back(Jobs::CHEMIST);
 }
 
-Jobs Crystal::GetValidJob(JobCompositionTypes jobComp)
+Jobs Crystal::GetValidJob(JobCompositionTypes jobComp, bool allowDupes, bool allowBerserker, std::vector<Jobs> previousJobs)
 {
-
+	bool validJobPicked = false;
 	Jobs pickedJob{};
-	int x;
-	switch (jobComp)
-	{
-	case ALL:
-		x = ValidJobs.size();
-		pickedJob = ValidJobs[GetRandom(x)];
-		break;
-	case TEAM750:
-		x = _750Jobs.size();
-		pickedJob = _750Jobs[GetRandom(x)];
-		break;
-	case TEAMNO750:
-		x = No750Jobs.size();
-		pickedJob = No750Jobs[GetRandom(x)];
-		break;
-	case TEAM375:
-		throw;
-		break;
-	case CLASSICJOBS:
-		x = ClassicJobs.size();
-		pickedJob = ClassicJobs[GetRandom(x)];
-		break;
-	case ONIONJOBS:
-		throw;
-		break;
-	case TEAMMETEOR:
-		x = MeteorJobs.size();
-		pickedJob = MeteorJobs[GetRandom(x)];
-		break;
-	default:
-		throw;
-		break;
-	}
 
+	while (!validJobPicked)
+	{
+		int x;
+		switch (jobComp)
+		{
+		case ALL:
+			x = ValidJobs.size();
+			pickedJob = ValidJobs[GetRandom(x)];
+			break;
+		case TEAM750:
+			x = _750Jobs.size();
+			pickedJob = _750Jobs[GetRandom(x)];
+			break;
+		case TEAMNO750:
+			x = No750Jobs.size();
+			pickedJob = No750Jobs[GetRandom(x)];
+			break;
+		case TEAM375:
+			throw;
+			break;
+		case CLASSICJOBS:
+			x = ClassicJobs.size();
+			pickedJob = ClassicJobs[GetRandom(x)];
+			break;
+		case ONIONJOBS:
+			throw;
+			break;
+		case TEAMMETEOR:
+			x = MeteorJobs.size();
+			pickedJob = MeteorJobs[GetRandom(x)];
+			break;
+		default:
+			throw;
+			break;
+		}
+
+		bool dupe = false;
+		bool berserker = false;
+
+		if (!allowDupes)
+		{
+			for (Jobs prevJob : previousJobs)
+			{
+				if (prevJob == pickedJob)
+				{
+					dupe = true;
+					break;
+				}
+			}
+		}
+
+		if (!allowBerserker)
+		{
+			berserker = pickedJob == BERSERKER;
+		}
+
+		if (!dupe && !berserker)
+			validJobPicked = true;
+	}
 	return pickedJob;
 }
 

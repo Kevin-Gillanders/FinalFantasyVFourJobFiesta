@@ -46,74 +46,77 @@ int main()
     //RunConfig runConfOnion{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
     //RunConfig runConfMeteor{ Crystals::EARTH, testJobs, runType, jobComp, advancedOptionsList };
 
-    RunConfig runConf{ testCrystal, testJobs, runType, JobCompositionTypes::ALL, advancedOptionsList };
+    bool allowDupes = false;
+    bool allowBerserkers = true;
+
+    RunConfig runConf{ testCrystal, testJobs, runType, JobCompositionTypes::ALL, allowDupes, allowBerserkers, advancedOptionsList };
 
 
     cout << "Regular, all" << endl;
     fjfBuilder.GenerateFullJobSet(runConf);
     
     cout << "Regular, Typhoon" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::ALL, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::ALL, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
     
     cout << "Regular, Volcano" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::ALL, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::ALL, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "750, All" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM750, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM750, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "750, Typhoon" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::TEAM750, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::TEAM750, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "750, Volcano" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::TEAM750, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::TEAM750, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
 
     cout << "NO750, ALL" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAMNO750, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAMNO750, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf );
 
     cout << "NO750, Volcano" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::TEAMNO750, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::TEAMNO750, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf );
 
     cout << "NO750, Typhoon" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::TEAMNO750, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::TEAMNO750, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf );
 
 
     cout << "Meteor, Meteor" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::METEOR, JobCompositionTypes::TEAMMETEOR, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::METEOR, JobCompositionTypes::TEAMMETEOR, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
 
     cout << "CLASSICJOBS, ALL" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::CLASSICJOBS, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::CLASSICJOBS, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "CLASSICJOBS, TYPHOON" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::CLASSICJOBS, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::TYPHOON, JobCompositionTypes::CLASSICJOBS, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "CLASSICJOBS, VOLCANO" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::CLASSICJOBS, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::VOLCANO, JobCompositionTypes::CLASSICJOBS, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
 
     cout << "Team375, Regular" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "Team375, Regular" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     cout << "Team375, Regular" << endl;
-    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, advancedOptionsList);
+    runConf = RunConfig(testCrystal, testJobs, RunTypes::REGULAR, JobCompositionTypes::TEAM375, allowDupes, allowBerserkers, advancedOptionsList);
     fjfBuilder.GenerateFullJobSet(runConf);
 
     //cout << "REGULAR, CLASSICJOBS" << endl;

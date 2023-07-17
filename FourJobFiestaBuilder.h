@@ -18,7 +18,7 @@ private:
 	std::vector<std::vector<Crystals>> VolcanoRun{{ WIND, WATER, FIRE, EARTH }, { WATER, FIRE, EARTH }, { FIRE, EARTH }, { EARTH } };
 	std::vector<std::vector<Crystals>> MeteorRun{{ WIND, WATER, FIRE, EARTH }, { WIND, WATER, FIRE, EARTH }, { WIND, WATER, FIRE, EARTH }, { WIND, WATER, FIRE, EARTH } };
 
-	Jobs GetJob(Crystals crystal, JobCompositionTypes jobComp);
+	Jobs GetJob(Crystals crystal, JobCompositionTypes jobComp, bool allowDupes, bool allowBerserkers, std::vector<Jobs> previousJobs);
 	Crystals GetCrystal(RunTypes typeofRun, int round);
 	void DisplayRun(RunConfig runConfig);
 public:
