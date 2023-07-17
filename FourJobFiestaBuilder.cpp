@@ -26,56 +26,63 @@ void FourJobFiestaBuilder::GenerateFullJobSet(RunConfig runDetails)
 	int jobs = 0;
 	while(jobs < amountOfJobs)
 	{
-		Jobs jobPicked{};
-
-		if (jobComp == CLASSICJOBS)
+		try
 		{
-			int amountOfClassicJobs = 6;
-			int classicIdx = windCrystal.GetRandom(amountOfClassicJobs) + 1;
+			Jobs jobPicked{};
 
-			if (amountOfClassicJobs == classicIdx)
-				jobPicked = GetJob(WATER, jobComp, allowDupes, allowBerserkers, jobsList);
-			else
-				jobPicked = GetJob(WIND, jobComp, allowDupes, allowBerserkers, jobsList);
-			jobs++;
-		}
-		else if (jobComp == TEAM375)
-		{
-			int rand = windCrystal.GetRandom(2);
-			if (rand == 0)
+			if (jobComp == CLASSICJOBS)
 			{
-				if (_750 != 2)
+				int amountOfClassicJobs = 6;
+				int classicIdx = windCrystal.GetRandom(amountOfClassicJobs) + 1;
+
+				if (amountOfClassicJobs == classicIdx)
+					jobPicked = GetJob(WATER, jobComp, allowDupes, allowBerserkers, jobsList);
+				else
+					jobPicked = GetJob(WIND, jobComp, allowDupes, allowBerserkers, jobsList);
+				jobs++;
+			}
+			else if (jobComp == TEAM375)
+			{
+				int rand = windCrystal.GetRandom(2);
+				if (rand == 0)
 				{
-					jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAM750, allowDupes, allowBerserkers, jobsList);
-					_750++;
+					if (_750 != 2)
+					{
+						jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAM750, allowDupes, allowBerserkers, jobsList);
+						_750++;
+					}
+					else
+					{
+						jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAMNO750, allowDupes, allowBerserkers, jobsList);
+						no750++;
+					}
 				}
 				else
 				{
-					jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAMNO750, allowDupes, allowBerserkers, jobsList);
-					no750++;
+					if (no750 != 2)
+					{
+						jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAMNO750, allowDupes, allowBerserkers, jobsList);
+						no750++;
+					}
+					else
+					{
+						jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAM750, allowDupes, allowBerserkers, jobsList);
+						_750++;
+					}
 				}
+				jobs++;
 			}
 			else
 			{
-				if (no750 != 2)
-				{
-					jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAMNO750, allowDupes, allowBerserkers, jobsList);
-					no750++;
-				}
-				else
-				{
-					jobPicked = GetJob(GetCrystal(REGULAR, jobs), TEAM750, allowDupes, allowBerserkers, jobsList);
-					_750++;
-				}
+				jobPicked = GetJob(GetCrystal(runType, jobs), jobComp, allowDupes, allowBerserkers, jobsList);
+				jobs++;
 			}
-			jobs++;
+			jobsList.push_back(jobPicked);
 		}
-		else
+		catch(std::string dupe)
 		{
-			jobPicked = GetJob(GetCrystal(runType, jobs), jobComp, allowDupes, allowBerserkers, jobsList);
-			jobs++;
+			//GetJob throws if a duplicate is found as it can lead to deadlock in a crystal
 		}
-		jobsList.push_back(jobPicked);
 	}
 }
 

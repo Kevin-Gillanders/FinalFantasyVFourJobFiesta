@@ -199,8 +199,9 @@ Jobs Crystal::GetValidJob(JobCompositionTypes jobComp, bool allowDupes, bool all
 			{
 				if (prevJob == pickedJob)
 				{
-					dupe = true;
-					break;
+					//Can hit dead lock and will never resolve as crystals have limited job pools under some restrictions
+					//Better to throw to a higher function to select a new crystal/job pool
+					throw "Duplicate : " + CrystalName;
 				}
 			}
 		}
