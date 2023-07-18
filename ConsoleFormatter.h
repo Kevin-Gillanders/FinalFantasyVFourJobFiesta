@@ -1,5 +1,6 @@
 #pragma once
 #include "ConsoleEnums.h"
+#include "ColourStruct.h"
 #include <string>
 
 class ConsoleFormatter
@@ -14,7 +15,7 @@ class ConsoleFormatter
 	const int COLOURSTYLEDISTANCE = 10;
 public:
 	ConsoleFormatter();
-	void SetColour(ColourStyle style, int r, int g, int b);
+	void SetColour(ColourStyle style, ColourStruct colour);
 	void SetColour(ConsoleColour fgColour, ConsoleColour bgColour);
 	void SetColour(ConsoleColour fgColour);
 	void SetBackGroundColour(ConsoleColour bgColour);

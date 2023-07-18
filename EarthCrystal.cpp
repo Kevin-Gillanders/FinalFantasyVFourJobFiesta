@@ -23,6 +23,8 @@ EarthCrystal::EarthCrystal()
 {
 	SetValidJobs();
 	CrystalColour = ConsoleColour::BRIGHT_GREEN;
+	BackgroundColour = { 82, 220, 96 };
+	ForegroundColour = { 135, 88, 53 };
 	CrystalDefinition = Crystals::EARTH;
 	CrystalName = "Earth";
 }

@@ -10,7 +10,6 @@ using namespace std;
 
 Crystal::Crystal()
 {
-	SetRandomSeed();
 	SetMeteorJobs();
 }
 
@@ -107,21 +106,14 @@ void Crystal::ResetColour()
 	console.ResetColour();
 }
 
-int Crystal::GetRandom(int jobNum)
-{
-	int rndNum = rand() % jobNum;
-	return rndNum;
-}
 
 void Crystal::SetColour()
 {
-	console.SetColour(CrystalColour);
+	//console.SetColour(CrystalColour);
+	console.SetColour(FOREGROUND, ForegroundColour);
+	console.SetColour(BACKGROUND, BackgroundColour);
 }
 
-void Crystal::SetRandomSeed()
-{
-	srand(time(NULL));
-}
 
 void Crystal::SetMeteorJobs()
 {
@@ -161,29 +153,29 @@ Jobs Crystal::GetValidJob(JobCompositionTypes jobComp, bool allowDupes, bool all
 		{
 		case ALL:
 			x = ValidJobs.size();
-			pickedJob = ValidJobs[GetRandom(x)];
+			pickedJob = ValidJobs[helper.GetRandom(x)];
 			break;
 		case TEAM750:
 			x = _750Jobs.size();
-			pickedJob = _750Jobs[GetRandom(x)];
+			pickedJob = _750Jobs[helper.GetRandom(x)];
 			break;
 		case TEAMNO750:
 			x = No750Jobs.size();
-			pickedJob = No750Jobs[GetRandom(x)];
+			pickedJob = No750Jobs[helper.GetRandom(x)];
 			break;
 		case TEAM375:
 			throw;
 			break;
 		case CLASSICJOBS:
 			x = ClassicJobs.size();
-			pickedJob = ClassicJobs[GetRandom(x)];
+			pickedJob = ClassicJobs[helper.GetRandom(x)];
 			break;
 		case ONIONJOBS:
 			throw;
 			break;
 		case TEAMMETEOR:
 			x = MeteorJobs.size();
-			pickedJob = MeteorJobs[GetRandom(x)];
+			pickedJob = MeteorJobs[helper.GetRandom(x)];
 			break;
 		default:
 			throw;
@@ -224,12 +216,12 @@ Jobs Crystal::Get375ValidJob(JobCompositionTypes type, int _750, int no750)
 	if(_750 == 2)
 	{
 		x = No750Jobs.size();
-		pickedJob = No750Jobs[GetRandom(x)];
+		pickedJob = No750Jobs[helper.GetRandom(x)];
 	}
 	else if (no750 == 2)
 	{
 		x = _750Jobs.size();
-		pickedJob = _750Jobs[GetRandom(x)];
+		pickedJob = _750Jobs[helper.GetRandom(x)];
 	}
 	return pickedJob;
 

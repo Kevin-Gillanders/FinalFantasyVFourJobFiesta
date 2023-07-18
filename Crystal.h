@@ -6,6 +6,8 @@
 #include <time.h>
 #include "ConsoleFormatter.h"
 #include <iostream>
+#include "Helper.h"
+#include "ColourStruct.h"
 
 class Crystal
 {
@@ -19,8 +21,12 @@ protected:
 	std::vector<Jobs> MeteorJobs{};
 
 	ConsoleColour CrystalColour;
+	ColourStruct ForegroundColour;
+	ColourStruct BackgroundColour;
+
 	Crystals CrystalDefinition;
 	std::string CrystalName;
+	Helper helper{};
 	virtual void SetValidJobs() = 0;
 
 public:
@@ -34,12 +40,10 @@ public:
 	Jobs Get375ValidJob(JobCompositionTypes type, int _750, int no750);
 	void PrintMessage(std::string text);
 	void ResetColour();
-	int GetRandom(int jobNum);
 	void SetColour();
 
 private:
 
-	void SetRandomSeed();
 	void SetMeteorJobs();
 
 };

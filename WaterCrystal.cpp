@@ -30,6 +30,8 @@ WaterCrystal::WaterCrystal()
 {
     SetValidJobs();
 	CrystalColour = ConsoleColour::BRIGHT_BLUE;
+	BackgroundColour = { 102, 178, 255 };
+	ForegroundColour = { 153, 255, 204 };
 	CrystalDefinition = Crystals::WATER;
 	CrystalName = "Water";
 }

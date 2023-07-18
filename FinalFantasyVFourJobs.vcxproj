@@ -137,16 +137,19 @@
     <ClCompile Include="FinalFantasyVFourJobs.cpp" />
     <ClCompile Include="FireCrystal.cpp" />
     <ClCompile Include="FourJobFiestaBuilder.cpp" />
+    <ClCompile Include="Helper.cpp" />
     <ClCompile Include="RunConfig.cpp" />
     <ClCompile Include="WaterCrystal.cpp" />
     <ClCompile Include="WindCrystal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ColourStruct.h" />
     <ClInclude Include="ConsoleFormatter.h" />
     <ClInclude Include="Crystal.h" />
     <ClInclude Include="EarthCrystal.h" />
     <ClInclude Include="FireCrystal.h" />
     <ClInclude Include="FourJobFiestaBuilder.h" />
+    <ClInclude Include="Helper.h" />
     <ClInclude Include="RunConfig.h" />
     <ClInclude Include="WaterCrystal.h" />
     <ClInclude Include="WindCrystal.h" />

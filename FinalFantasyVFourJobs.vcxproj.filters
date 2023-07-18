@@ -27,13 +27,28 @@
     <ClCompile Include="FinalFantasyVEnums.h">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="FinalFantansyVJobs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RunConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Crystal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EarthCrystal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FireCrystal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FourJobFiestaBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WaterCrystal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindCrystal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,13 +56,31 @@
     <ClInclude Include="ConsoleFormatter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FinalFantansyVJobs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RunConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Crystal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EarthCrystal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FireCrystal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FourJobFiestaBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WaterCrystal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WindCrystal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColourStruct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

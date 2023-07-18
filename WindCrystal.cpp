@@ -6,6 +6,8 @@ WindCrystal::WindCrystal()
 {
     SetValidJobs();
     CrystalColour = ConsoleColour::BRIGHT_CYAN;
+    BackgroundColour = { 204, 255, 255 };
+    ForegroundColour = { 102, 178, 255 };
     CrystalDefinition = Crystals::WIND;
     CrystalName = "Wind";
 }

@@ -30,6 +30,8 @@ FireCrystal::FireCrystal()
 {
 	SetValidJobs();
 	CrystalColour = ConsoleColour::BRIGHT_RED;
+	BackgroundColour = { 255, 20, 20 };
+	ForegroundColour = { 255, 255, 0 };
 	CrystalDefinition = Crystals::FIRE;
 	CrystalName = "Fire";
 }

@@ -1,6 +1,7 @@
 #include "ConsoleFormatter.h"
 using namespace std;
 #include <iostream>
+#include "ColourStruct.h"
 
 //reference
 //https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
@@ -13,7 +14,8 @@ ConsoleFormatter::ConsoleFormatter()
 	StrikeThrough = false;
 }
 
-void ConsoleFormatter::SetColour(ColourStyle style, int r, int g, int b)
+
+void ConsoleFormatter::SetColour(ColourStyle style, ColourStruct colour)
 {
 	int fg = 38;
 	int bg = 48;
@@ -23,7 +25,7 @@ void ConsoleFormatter::SetColour(ColourStyle style, int r, int g, int b)
 	else
 		styleID = bg;
 	int format = 2; //5
-	cout << ESCAPESEQUENCE << styleID << ARGUMENTCONCAT << format << ARGUMENTCONCAT << r << ARGUMENTCONCAT << g << ARGUMENTCONCAT << b << COMMANDCLOSE;
+	cout << ESCAPESEQUENCE << styleID << ARGUMENTCONCAT << format << ARGUMENTCONCAT << colour.r << ARGUMENTCONCAT << colour.g << ARGUMENTCONCAT << colour.b << COMMANDCLOSE;
 }
 
 void ConsoleFormatter::SetColour(ConsoleColour fgColour, ConsoleColour bgColour)
